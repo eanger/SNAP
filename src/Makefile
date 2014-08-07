@@ -5,16 +5,23 @@ OPT = yes
 FFLAGS = -O3
 FFLAG2 =
 
-FORTRAN = mpif90
+FORTRAN = bf-mpif90
+
+#FORTRAN = bf-mpif90
 #FORTRAN = ifort
 #FORTRAN = gfortran
 #FORTRAN = bg-gfortran
 
+ifeq ($(FORTRAN),bf-mpif90)
+  TARGET = snap
+  FFLAGS = -g -O3 -fopenmp -I/home/eanger/tmp/d4-7 /home/eanger/tmp/d4-7/libd4.a
+  FFLAG2 = 
+endif
 #ifeq ($(FORTRAN),ifort)
 ifeq ($(FORTRAN),mpif90)
   TARGET = snap
   FFLAGS = -O3 -openmp
-  FFLAG2 =
+  FFLAG2 = 
   ifeq ($(OPT),no)
     TARGET = snap_db
     FFLAGS = -g -O0 -check bounds -traceback -openmp

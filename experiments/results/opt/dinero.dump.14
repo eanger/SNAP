@@ -1,0 +1,4 @@
+l1 accesses	l2 accesses	l3 accesses	mem accesses
+83365854	3438419	2550982	274914
+l1 conflict misses	l2 conflict misses	l3 conflict misses
+17362	9842	30865
